@@ -17,7 +17,7 @@
 
 <style>
 /* Base Reset */
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; scroll-behavior:smooth; transition:0.3s;}
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; scroll-behavior:smooth;}
 body {background:#f9f9f9; color:#333; line-height:1.6; overflow-x:hidden;}
 a {text-decoration:none; color:inherit;}
 img {max-width:100%; display:block;}
@@ -82,6 +82,12 @@ section h2 {font-size:2.2rem; margin-bottom:2rem; text-align:center; color:#1a73
 .swiper {width:100%; padding:2rem 0;}
 .swiper-slide {display:flex; justify-content:center;}
 
+/* Modal iframe */
+.modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:2000;}
+.modal-content {width:90%; height:90%; background:#fff; border-radius:12px; overflow:hidden; position:relative;}
+.modal-content iframe {width:100%; height:100%; border:none;}
+.modal-close {position:absolute; top:10px; right:10px; background:#1a73e8; color:#fff; border:none; padding:0.5rem 1rem; border-radius:50px; cursor:pointer; font-size:1rem;}
+
 /* Footer */
 footer {background:#1a73e8; color:white; text-align:center; padding:2rem 1rem; margin-top:2rem; border-radius:12px;}
 
@@ -104,7 +110,7 @@ footer {background:#1a73e8; color:white; text-align:center; padding:2rem 1rem; m
         <li><a href="#about">À propos</a></li>
         <li><a href="#formation">Formation</a></li>
         <li><a href="#experience">Expériences</a></li>
-        <li><a href="#projects">Projets</a></li>
+        <li><a href="#projects">Projets M1</a></li>
         <li><a href="#skills">Compétences</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
@@ -113,7 +119,6 @@ footer {background:#1a73e8; color:white; text-align:center; padding:2rem 1rem; m
 
 <div class="main-content">
 
-<!-- Header -->
 <header>
     <img src="Profile.png" alt="Nawres Hammami">
     <h1>Nawres Hammami</h1>
@@ -122,10 +127,8 @@ footer {background:#1a73e8; color:white; text-align:center; padding:2rem 1rem; m
     <a href="CV_Nawres_Hammami.pdf" class="btn" target="_blank">Télécharger mon CV</a>
 </header>
 
-<!-- Floating Contact Button -->
 <button id="contactBtn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Contactez-moi</button>
 
-<!-- Sections -->
 <section id="about">
     <h2>À propos de moi</h2>
     <p>Étudiante diplômée en E-Business et Business Intelligence, passionnée par l’innovation digitale et la performance commerciale. Je conçois et pilote des projets de transformation digitale, marketing digital et business analytics pour générer un impact stratégique.</p>
@@ -146,23 +149,15 @@ footer {background:#1a73e8; color:white; text-align:center; padding:2rem 1rem; m
         <div class="card">
             <h3>Stage fin d’études – SAIPH</h3>
             <p>02/2024 – 05/2024 | Développement Web & BI</p>
-            <ul>
-                <li>Création d’une plateforme e-learning (Angular, Spring Boot, MySQL)</li>
-                <li>Tableaux de bord KPI et automatisation du reporting</li>
-                <li>Gain d’efficacité 20%</li>
-            </ul>
         </div>
         <div class="card">
             <h3>Stage d’été – SAIPH</h3>
             <p>07/2023 – 09/2023 | Développement Web</p>
-            <ul>
-                <li>Application de gestion des tickets informatiques</li>
-                <li>Réduction du temps de réponse 15%</li>
-            </ul>
         </div>
     </div>
 </section>
 
+<!-- Projets M1 avec iframe modal -->
 <section id="projects">
     <h2>Projets M1</h2>
     <div class="filter-buttons">
@@ -174,49 +169,34 @@ footer {background:#1a73e8; color:white; text-align:center; padding:2rem 1rem; m
 
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <!-- Exemple de projet SEO -->
-            <div class="swiper-slide card project" data-category="seo">
+            <!-- Projet SEO -->
+            <div class="swiper-slide card project" data-category="seo" onclick="openModal('https://drive.google.com/file/d/ID1/preview')">
                 <img src="miniature1.jpg" alt="Veille stratégique Aziza" style="width:100%; border-radius:8px; margin-bottom:10px;">
                 <h3>Veille stratégique – Magasin Aziza</h3>
-                <p>Analyse SEO et recommandations pour visibilité digitale</p>
-                <a href="https://drive.google.com/file/d/ID1/view?usp=sharing" target="_blank" class="btn">Voir le projet</a>
             </div>
-            
-            <!-- Exemple de projet Web -->
-            <div class="swiper-slide card project" data-category="web">
+            <!-- Projet Web -->
+            <div class="swiper-slide card project" data-category="web" onclick="openModal('https://drive.google.com/file/d/ID2/preview')">
                 <img src="miniature2.jpg" alt="Boutique en ligne" style="width:100%; border-radius:8px; margin-bottom:10px;">
                 <h3>Boutique en ligne – WordPress/WooCommerce</h3>
-                <p>Développement complet, optimisation SEO</p>
-                <a href="https://drive.google.com/file/d/ID2/view?usp=sharing" target="_blank" class="btn">Voir le projet</a>
             </div>
-            
-            <!-- Exemple de projet Transformation digitale -->
-            <div class="swiper-slide card project" data-category="digital">
+            <!-- Projet Digital -->
+            <div class="swiper-slide card project" data-category="digital" onclick="openModal('https://drive.google.com/file/d/ID3/preview')">
                 <img src="miniature3.jpg" alt="Transformation digitale ESEN 2040" style="width:100%; border-radius:8px; margin-bottom:10px;">
                 <h3>Transformation digitale – ESEN 2040</h3>
-                <p>Audit, analyse stratégique McKinsey, conception KPI</p>
-                <a href="https://drive.google.com/file/d/ID3/view?usp=sharing" target="_blank" class="btn">Voir le projet</a>
             </div>
-
             <!-- Web Marketing International -->
-            <div class="swiper-slide card project" data-category="web">
+            <div class="swiper-slide card project" data-category="web" onclick="openModal('https://drive.google.com/file/d/ID4/preview')">
                 <img src="miniature4.jpg" alt="Web Marketing International Alwosta" style="width:100%; border-radius:8px; margin-bottom:10px;">
                 <h3>Web Marketing International – Alwosta</h3>
-                <p>SEO multicanal et stratégie e-commerce internationale</p>
-                <a href="https://drive.google.com/file/d/ID4/view?usp=sharing" target="_blank" class="btn">Voir le projet</a>
             </div>
-
-            <!-- Ajouter ici les autres projets M1 -->
         </div>
         <div class="swiper-pagination"></div>
     </div>
 </section>
 
-
-
 <section id="skills">
     <h2>Compétences</h2>
-    <div class="skills-grid" id="skillsGrid">
+    <div class="skills-grid">
         <div class="skill" data-lottie="https://assets5.lottiefiles.com/packages/lf20_x62chJ.json"></div>
         <div class="skill">Python / R / Java / PHP / JS</div>
         <div class="skill">SQL / NoSQL / MySQL / Oracle / MongoDB</div>
@@ -234,11 +214,19 @@ footer {background:#1a73e8; color:white; text-align:center; padding:2rem 1rem; m
     <p>LinkedIn : <a href="https://linkedin.com/in/naouras-hammami" target="_blank">linkedin.com/in/naouras-hammami</a></p>
 </section>
 
+<!-- Modal iframe -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">Fermer</button>
+        <iframe src="" id="modalIframe" allowfullscreen></iframe>
+    </div>
+</div>
+
 <footer>&copy; 2025 Nawres Hammami | Portfolio E-Business</footer>
 </div>
 
 <script>
-// Dark Mode Toggle
+// Dark Mode
 document.getElementById('darkModeToggle').addEventListener('click', ()=>document.body.classList.toggle('dark'));
 
 // Sidebar Toggle
@@ -246,14 +234,7 @@ document.getElementById('toggleSidebar').addEventListener('click', ()=>document.
 
 // Scroll animation
 const sections = document.querySelectorAll('section');
-window.addEventListener('scroll', ()=>{
-    const scrollY = window.pageYOffset;
-    sections.forEach(sec=>{
-        if(scrollY + window.innerHeight - 150 > sec.offsetTop){
-            sec.classList.add('visible');
-        }
-    });
-});
+window.addEventListener('scroll', ()=>sections.forEach(sec=>{if(window.pageYOffset + window.innerHeight - 150 > sec.offsetTop){sec.classList.add('visible')}}));
 
 // Project filter
 const filterButtons = document.querySelectorAll('.filter-buttons button');
@@ -263,15 +244,11 @@ filterButtons.forEach(button=>{
         filterButtons.forEach(btn=>btn.classList.remove('active'));
         button.classList.add('active');
         const filter = button.getAttribute('data-filter');
-        projects.forEach(proj=>{
-            if(filter==='all' || proj.getAttribute('data-category')===filter){
-                proj.style.display='block';
-            } else { proj.style.display='none'; }
-        });
+        projects.forEach(proj=>{proj.style.display = (filter==='all' || proj.getAttribute('data-category')===filter) ? 'block':'none';});
     });
 });
 
-// Swiper Initialization
+// Swiper
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
@@ -280,17 +257,14 @@ var swiper = new Swiper(".mySwiper", {
     breakpoints:{ 768:{slidesPerView:2}, 1024:{slidesPerView:3} }
 });
 
-// Lottie Animations for Skills
-const lottieElements = document.querySelectorAll('.skill[data-lottie]');
-lottieElements.forEach(el=>{
-    lottie.loadAnimation({
-        container: el,
-        renderer: 'svg',
-        loop:true,
-        autoplay:true,
-        path: el.getAttribute('data-lottie')
-    });
+// Lottie Skills
+document.querySelectorAll('.skill[data-lottie]').forEach(el=>{
+    lottie.loadAnimation({container: el, renderer:'svg', loop:true, autoplay:true, path: el.getAttribute('data-lottie')});
 });
+
+// Modal functions
+function openModal(url){document.getElementById('modal').style.display='flex'; document.getElementById('modalIframe').src=url;}
+function closeModal(){document.getElementById('modal').style.display='none'; document.getElementById('modalIframe').src='';}
 </script>
 
 </body>
