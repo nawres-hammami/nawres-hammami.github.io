@@ -1,181 +1,225 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nawres Hammami | Portfolio E-Business</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset & Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
-        a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nawres Hammami | Portfolio E-Business</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
 
-        /* Header */
-        header { background: #1a73e8; color: white; padding: 2rem 1rem; text-align: center; }
-        header img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #fff; object-fit: cover; }
-        header h1 { margin: 1rem 0 0.5rem; font-size: 2rem; }
-        header h2 { font-weight: 400; font-size: 1.2rem; color: #e0e0e0; }
+/* Header */
+header { background: #1a73e8; color: white; padding: 3rem 1rem; text-align: center; position: relative; overflow: hidden; }
+header img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #fff; object-fit: cover; transition: transform 0.3s; }
+header img:hover { transform: scale(1.1); }
+header h1 { margin: 1rem 0 0.5rem; font-size: 2.5rem; }
+header h2 { font-weight: 400; font-size: 1.3rem; color: #e0e0e0; }
+header .btn { display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; background: #0d47a1; color: #fff; border-radius: 50px; font-weight: 600; transition: 0.3s; }
+header .btn:hover { background: #1565c0; transform: translateY(-3px); }
 
-        /* Navigation */
-        nav { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        nav ul { display: flex; justify-content: center; list-style: none; }
-        nav li { margin: 0 1rem; }
-        nav a { display: block; padding: 1rem; font-weight: 600; color: #1a73e8; transition: 0.3s; }
-        nav a:hover { color: #0d47a1; }
+/* Navigation */
+nav { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+nav ul { display: flex; justify-content: center; list-style: none; flex-wrap: wrap; }
+nav li { margin: 0 1rem; }
+nav a { display: block; padding: 1rem; font-weight: 600; color: #1a73e8; transition: 0.3s; }
+nav a:hover { color: #0d47a1; }
 
-        /* Sections */
-        section { padding: 4rem 1rem; max-width: 1000px; margin: 0 auto; }
-        section h2 { font-size: 2rem; margin-bottom: 2rem; text-align: center; color: #1a73e8; }
-        .section-content { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+/* Sections */
+section { padding: 4rem 1rem; max-width: 1100px; margin: 0 auto; opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+section.visible { opacity: 1; transform: translateY(0); }
+section h2 { font-size: 2.2rem; margin-bottom: 2rem; text-align: center; color: #1a73e8; }
 
-        /* Cards */
-        .card { background: #fff; border-radius: 10px; padding: 1.5rem; flex: 1 1 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .card h3 { margin-bottom: 1rem; color: #1a73e8; }
-        .card p { margin-bottom: 0.5rem; line-height: 1.4; }
-        .card ul { list-style: disc inside; margin-top: 0.5rem; }
+/* Cards */
+.section-content { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+.card { background: #fff; border-radius: 12px; padding: 1.5rem; flex: 1 1 300px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+.card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+.card h3 { margin-bottom: 1rem; color: #1a73e8; }
+.card p, .card ul { margin-bottom: 0.5rem; line-height: 1.4; }
 
-        /* Skills Grid */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-        .skill { background: #e3f2fd; color: #0d47a1; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; }
+/* Skills Grid */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.skill { background: #e3f2fd; color: #0d47a1; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; transition: transform 0.3s; }
+.skill:hover { transform: scale(1.05); }
 
-        /* Footer */
-        footer { background: #1a73e8; color: white; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+/* Projects Filter */
+.filter-buttons { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.filter-buttons button { padding: 0.6rem 1.2rem; border: none; border-radius: 50px; background: #0d47a1; color: #fff; font-weight: 600; cursor: pointer; transition: 0.3s; }
+.filter-buttons button:hover, .filter-buttons button.active { background: #1565c0; }
 
-        /* Button */
-        .btn { display: inline-block; background: #0d47a1; color: #fff; padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: 600; transition: 0.3s; margin-top: 1rem; }
-        .btn:hover { background: #1a73e8; }
+/* Footer */
+footer { background: #1a73e8; color: white; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
 
-        /* Responsive */
-        @media(max-width:768px){ .section-content{ flex-direction: column; } }
-    </style>
+/* Responsive */
+@media(max-width:768px){ .section-content{ flex-direction: column; } }
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <img src="Profile.png" alt="Nawres Hammami">
-        <h1>Nawres Hammami</h1>
-        <h2>Master Professionnel en E-Business | Business Analytics & Transformation Digitale</h2>
-        <a href="CV_Nawres_Hammami.pdf" class="btn" target="_blank">Télécharger mon CV</a>
-    </header>
+<!-- Header -->
+<header>
+    <img src="Profile.png" alt="Nawres Hammami">
+    <h1>Nawres Hammami</h1>
+    <h2>Master Professionnel en E-Business | Business Analytics & Transformation Digitale</h2>
+    <a href="CV_Nawres_Hammami.pdf" class="btn" target="_blank">Télécharger mon CV</a>
+</header>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#formation">Formation</a></li>
-            <li><a href="#experience">Expériences</a></li>
-            <li><a href="#projects">Projets</a></li>
-            <li><a href="#skills">Compétences</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#formation">Formation</a></li>
+        <li><a href="#experience">Expériences</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <!-- About -->
-    <section id="about">
-        <h2>À propos de moi</h2>
-        <p>Étudiante diplômée en E-Business et Business Intelligence, passionnée par l’innovation digitale et la performance commerciale. Je conçois et pilote des projets de transformation digitale, marketing digital et business analytics pour générer un impact stratégique.</p>
-        <p>Esprit analytique, rigoureuse et créative. Forte capacité d’adaptation et leadership collaboratif.</p>
-    </section>
+<!-- About -->
+<section id="about">
+    <h2>À propos de moi</h2>
+    <p>Étudiante diplômée en E-Business et Business Intelligence, passionnée par l’innovation digitale et la performance commerciale. Je conçois et pilote des projets de transformation digitale, marketing digital et business analytics pour générer un impact stratégique.</p>
+    <p>Esprit analytique, rigoureuse et créative. Forte capacité d’adaptation et leadership collaboratif.</p>
+</section>
 
-    <!-- Formation -->
-    <section id="formation">
-        <h2>Formation</h2>
-        <div class="section-content">
-            <div class="card">
-                <h3>Master 2 Professionnel – E-Business | ESEN</h3>
-                <p>2025 – 2026 | Spécialisations : Business Analytics, Transformation Digitale, Pilotage de la Performance, Stratégie Marketing</p>
-            </div>
-            <div class="card">
-                <h3>Master 1 Professionnel – E-Business | ESEN</h3>
-                <p>2024 – 2025 | Major de promotion – Mention Bien (15,32/20)</p>
-            </div>
-            <div class="card">
-                <h3>Licence – Informatique de Gestion (Business Intelligence) | ISAA Sfax</h3>
-                <p>2021 – 2024 | Mention Bien (15,32/20)</p>
-            </div>
+<!-- Formation -->
+<section id="formation">
+    <h2>Formation</h2>
+    <div class="section-content">
+        <div class="card">
+            <h3>Master 2 Professionnel – E-Business | ESEN</h3>
+            <p>2025 – 2026 | Business Analytics, Transformation Digitale, Stratégie Marketing</p>
         </div>
-    </section>
-
-    <!-- Experiences -->
-    <section id="experience">
-        <h2>Expériences professionnelles</h2>
-        <div class="section-content">
-            <div class="card">
-                <h3>Stage de fin d’études – SAIPH</h3>
-                <p>02/2024 – 05/2024 | Développement Web & Business Intelligence</p>
-                <ul>
-                    <li>Création d’une plateforme e-learning interne (Angular, Spring Boot, MySQL)</li>
-                    <li>Mise en place de tableaux de bord KPI pour le suivi de performance</li>
-                    <li>Automatisation du reporting, gain d’efficacité de 20%</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Stage d’été – SAIPH</h3>
-                <p>07/2023 – 09/2023 | Développement Web</p>
-                <ul>
-                    <li>Développement d’une application interne de gestion des tickets</li>
-                    <li>Amélioration de l’expérience utilisateur, réduction du temps de réponse de 15%</li>
-                </ul>
-            </div>
+        <div class="card">
+            <h3>Master 1 Professionnel – E-Business | ESEN</h3>
+            <p>2024 – 2025 | Major de promotion – Mention Bien (15,32/20)</p>
         </div>
-    </section>
-
-    <!-- Projets -->
-    <section id="projects">
-        <h2>Projets académiques</h2>
-        <div class="section-content">
-            <div class="card">
-                <h3>Veille stratégique – Magasin Aziza</h3>
-                <p>Analyse SEO, benchmarking, recommandations pour améliorer la visibilité digitale</p>
-            </div>
-            <div class="card">
-                <h3>Stratégie Web Marketing International – Alwosta</h3>
-                <p>Stratégie e-commerce internationale, SEO multicanal, CRM</p>
-            </div>
-            <div class="card">
-                <h3>Analyse stratégique – Supply Chain Management (Délice Holding)</h3>
-                <p>Digitalisation des processus logistiques et optimisation opérationnelle</p>
-            </div>
-            <div class="card">
-                <h3>Création d’une boutique en ligne</h3>
-                <p>Développement complet WordPress & WooCommerce, optimisation SEO et tunnel d’achat</p>
-            </div>
-            <div class="card">
-                <h3>Projet de transformation digitale – ESEN 2040</h3>
-                <p>Audit, analyse stratégique (McKinsey), conception de solutions et KPI</p>
-            </div>
+        <div class="card">
+            <h3>Licence – Informatique de Gestion (Business Intelligence) | ISAA Sfax</h3>
+            <p>2021 – 2024 | Mention Bien (15,32/20)</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Skills -->
-    <section id="skills">
-        <h2>Compétences</h2>
-        <div class="skills-grid">
-            <div class="skill">Python / R / Java / PHP / JS</div>
-            <div class="skill">SQL / NoSQL / MySQL / Oracle / MongoDB</div>
-            <div class="skill">Power BI / Tableau / Looker Studio / Excel avancé</div>
-            <div class="skill">WordPress / WooCommerce / Odoo / HubSpot</div>
-            <div class="skill">Marketing digital & SEO</div>
-            <div class="skill">Scrum / Kanban / Gestion de projet</div>
-            <div class="skill">UX Design / Design Thinking / Transformation digitale</div>
-            <div class="skill">Communication & Community Management</div>
+<!-- Experiences -->
+<section id="experience">
+    <h2>Expériences professionnelles</h2>
+    <div class="section-content">
+        <div class="card">
+            <h3>Stage de fin d’études – SAIPH</h3>
+            <p>02/2024 – 05/2024 | Développement Web & Business Intelligence</p>
+            <ul>
+                <li>Création d’une plateforme e-learning interne (Angular, Spring Boot, MySQL)</li>
+                <li>Mise en place de tableaux de bord KPI</li>
+                <li>Automatisation du reporting, gain d’efficacité de 20%</li>
+            </ul>
         </div>
-    </section>
+        <div class="card">
+            <h3>Stage d’été – SAIPH</h3>
+            <p>07/2023 – 09/2023 | Développement Web</p>
+            <ul>
+                <li>Développement d’une application interne de gestion des tickets</li>
+                <li>Réduction du temps de réponse de 15%</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email : <a href="mailto:naouras.hammami@gmail.com">naouras.hammami@gmail.com</a></p>
-        <p>Téléphone : +216 27 602 859</p>
-        <p>LinkedIn : <a href="https://linkedin.com/in/naouras-hammami" target="_blank">linkedin.com/in/naouras-hammami</a></p>
-    </section>
+<!-- Projects -->
+<section id="projects">
+    <h2>Projets académiques</h2>
+    <div class="filter-buttons">
+        <button class="active" data-filter="all">Tous</button>
+        <button data-filter="seo">SEO</button>
+        <button data-filter="web">Web</button>
+        <button data-filter="digital">Transformation digitale</button>
+    </div>
+    <div class="section-content" id="projects-grid">
+        <div class="card project" data-category="seo">
+            <h3>Veille stratégique – Magasin Aziza</h3>
+            <p>Analyse SEO, benchmarking, recommandations pour améliorer la visibilité digitale</p>
+        </div>
+        <div class="card project" data-category="web">
+            <h3>Création d’une boutique en ligne</h3>
+            <p>Développement complet WordPress & WooCommerce, optimisation SEO et tunnel d’achat</p>
+        </div>
+        <div class="card project" data-category="digital">
+            <h3>Projet de transformation digitale – ESEN 2040</h3>
+            <p>Audit, analyse stratégique (McKinsey), conception de solutions et KPI</p>
+        </div>
+        <div class="card project" data-category="web">
+            <h3>Stratégie Web Marketing International – Alwosta</h3>
+            <p>SEO multicanal et stratégie e-commerce internationale</p>
+        </div>
+        <div class="card project" data-category="digital">
+            <h3>Analyse stratégique – Supply Chain Management (Délice Holding)</h3>
+            <p>Digitalisation des processus logistiques et optimisation opérationnelle</p>
+        </div>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2025 Nawres Hammami | Portfolio E-Business
-    </footer>
+<!-- Skills -->
+<section id="skills">
+    <h2>Compétences</h2>
+    <div class="skills-grid">
+        <div class="skill">Python / R / Java / PHP / JS</div>
+        <div class="skill">SQL / NoSQL / MySQL / Oracle / MongoDB</div>
+        <div class="skill">Power BI / Tableau / Looker Studio / Excel avancé</div>
+        <div class="skill">WordPress / WooCommerce / Odoo / HubSpot</div>
+        <div class="skill">Marketing digital & SEO</div>
+        <div class="skill">Scrum / Kanban / Gestion de projet</div>
+        <div class="skill">UX Design / Design Thinking</div>
+        <div class="skill">Communication & Community Management</div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email : <a href="mailto:naouras.hammami@gmail.com">naouras.hammami@gmail.com</a></p>
+    <p>Téléphone : +216 27 602 859</p>
+    <p>LinkedIn : <a href="https://linkedin.com/in/naouras-hammami" target="_blank">linkedin.com/in/naouras-hammami</a></p>
+</section>
+
+<!-- Footer -->
+<footer>
+    &copy; 2025 Nawres Hammami | Portfolio E-Business
+</footer>
+
+<!-- Scripts -->
+<script>
+// Scroll animation
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+    const scrollY = window.pageYOffset;
+    sections.forEach(sec => {
+        if(scrollY + window.innerHeight - 150 > sec.offsetTop){
+            sec.classList.add('visible');
+        }
+    });
+});
+
+// Project filter
+const filterButtons = document.querySelectorAll('.filter-buttons button');
+const projects = document.querySelectorAll('.project');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.getAttribute('data-filter');
+        projects.forEach(proj => {
+            if(filter === 'all' || proj.getAttribute('data-category') === filter){
+                proj.style.display = 'block';
+            } else {
+                proj.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>
