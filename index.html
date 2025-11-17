@@ -3,91 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nawres Hammami - Portfolio</title>
+    <title>Nawres Hammami | Portfolio E-Business</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f9; color:#333; }
-        header { background:#4b6cb7; background: linear-gradient(to right, #4b6cb7, #182848); color:white; padding:50px 20px; text-align:center; }
-        header img { width:150px; border-radius:50%; border:3px solid white; }
-        header h1 { margin:15px 0 5px; font-size:2.5em; }
-        header p { font-size:1.2em; margin:0; }
-        section { padding:40px 20px; max-width:900px; margin:0 auto; }
-        h2 { color:#4b6cb7; border-bottom:2px solid #4b6cb7; padding-bottom:5px; margin-bottom:20px; }
-        ul { list-style: none; padding:0; }
-        ul li { margin-bottom:10px; }
-        a.button { display:inline-block; margin-top:10px; padding:10px 20px; background:#4b6cb7; color:white; text-decoration:none; border-radius:5px; }
-        a.button:hover { background:#182848; }
-        .project { margin-bottom:25px; padding:15px; background:white; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header */
+        header { background: #1a73e8; color: white; padding: 2rem 1rem; text-align: center; }
+        header img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #fff; object-fit: cover; }
+        header h1 { margin: 1rem 0 0.5rem; font-size: 2rem; }
+        header h2 { font-weight: 400; font-size: 1.2rem; color: #e0e0e0; }
+
+        /* Navigation */
+        nav { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        nav ul { display: flex; justify-content: center; list-style: none; }
+        nav li { margin: 0 1rem; }
+        nav a { display: block; padding: 1rem; font-weight: 600; color: #1a73e8; transition: 0.3s; }
+        nav a:hover { color: #0d47a1; }
+
+        /* Sections */
+        section { padding: 4rem 1rem; max-width: 1000px; margin: 0 auto; }
+        section h2 { font-size: 2rem; margin-bottom: 2rem; text-align: center; color: #1a73e8; }
+        .section-content { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+
+        /* Cards */
+        .card { background: #fff; border-radius: 10px; padding: 1.5rem; flex: 1 1 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .card h3 { margin-bottom: 1rem; color: #1a73e8; }
+        .card p { margin-bottom: 0.5rem; line-height: 1.4; }
+        .card ul { list-style: disc inside; margin-top: 0.5rem; }
+
+        /* Skills Grid */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .skill { background: #e3f2fd; color: #0d47a1; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; }
+
+        /* Footer */
+        footer { background: #1a73e8; color: white; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+
+        /* Button */
+        .btn { display: inline-block; background: #0d47a1; color: #fff; padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: 600; transition: 0.3s; margin-top: 1rem; }
+        .btn:hover { background: #1a73e8; }
+
+        /* Responsive */
+        @media(max-width:768px){ .section-content{ flex-direction: column; } }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="Profile.png" alt="Photo de Nawres Hammami">
-    <h1>Nawres Hammami</h1>
-    <p>Master 2 Professionnel e-Business | Marketing Digital 360° & Business Analytics</p>
-    <a href="Portfolio_Nawres_Hammami.pdf" class="button" target="_blank">Télécharger PDF</a>
-</header>
+    <!-- Header -->
+    <header>
+        <img src="Profile.png" alt="Nawres Hammami">
+        <h1>Nawres Hammami</h1>
+        <h2>Master Professionnel en E-Business | Business Analytics & Transformation Digitale</h2>
+        <a href="CV_Nawres_Hammami.pdf" class="btn" target="_blank">Télécharger mon CV</a>
+    </header>
 
-<section>
-    <h2>À propos</h2>
-    <p>Étudiante en Master 2 Professionnel e-Business à l’ESEN, motivée par la performance et l’innovation. Je souhaite contribuer à des projets de transformation digitale et stratégie marketing pour améliorer l’efficacité commerciale.</p>
-</section>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#formation">Formation</a></li>
+            <li><a href="#experience">Expériences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<section>
-    <h2>Compétences</h2>
-    <ul>
-        <li><strong>Marketing digital :</strong> SEO, SEA, Social Media, Content Creation, Email Marketing</li>
-        <li><strong>Business Analytics :</strong> Power BI, Google Analytics, Excel, Google Looker Studio</li>
-        <li><strong>Transformation digitale :</strong> HubSpot, WordPress, Odoo, CRM</li>
-        <li><strong>Design & Création :</strong> Canva, Photoshop, montage vidéo</li>
-    </ul>
-</section>
+    <!-- About -->
+    <section id="about">
+        <h2>À propos de moi</h2>
+        <p>Étudiante diplômée en E-Business et Business Intelligence, passionnée par l’innovation digitale et la performance commerciale. Je conçois et pilote des projets de transformation digitale, marketing digital et business analytics pour générer un impact stratégique.</p>
+        <p>Esprit analytique, rigoureuse et créative. Forte capacité d’adaptation et leadership collaboratif.</p>
+    </section>
 
-<section>
-    <h2>Projets Académiques & Expériences</h2>
-    
-    <div class="project">
-        <h3>Stage – Développement Web & Business Intelligence | SAIPH</h3>
-        <p>Création d’une plateforme e-learning interne et mise en place de dashboards pour suivre la performance et l’engagement utilisateurs. Collaboration interservices pour digitaliser les processus.</p>
-    </div>
-    
-    <div class="project">
-        <h3>Stratégie Web Marketing International – Alwosta</h3>
-        <p>Élaboration d’une stratégie d’internationalisation e-commerce avec analyses PESTEL et mix marketing. Mise en place SEO et campagnes multi-canaux.</p>
-    </div>
-    
-    <div class="project">
-        <h3>Analyse stratégique – Supply Chain Management | Délice Holding</h3>
-        <p>Diagnostic et digitalisation des processus logistiques pour optimiser l’efficacité opérationnelle et promouvoir une gestion durable.</p>
-    </div>
+    <!-- Formation -->
+    <section id="formation">
+        <h2>Formation</h2>
+        <div class="section-content">
+            <div class="card">
+                <h3>Master 2 Professionnel – E-Business | ESEN</h3>
+                <p>2025 – 2026 | Spécialisations : Business Analytics, Transformation Digitale, Pilotage de la Performance, Stratégie Marketing</p>
+            </div>
+            <div class="card">
+                <h3>Master 1 Professionnel – E-Business | ESEN</h3>
+                <p>2024 – 2025 | Major de promotion – Mention Bien (15,32/20)</p>
+            </div>
+            <div class="card">
+                <h3>Licence – Informatique de Gestion (Business Intelligence) | ISAA Sfax</h3>
+                <p>2021 – 2024 | Mention Bien (15,32/20)</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="project">
-        <h3>Transformation digitale – ESEN 2040</h3>
-        <p>Projet complet de transformation digitale : analyse, diagnostic stratégique, conception de solutions innovantes et définition des KPI.</p>
-    </div>
-</section>
+    <!-- Experiences -->
+    <section id="experience">
+        <h2>Expériences professionnelles</h2>
+        <div class="section-content">
+            <div class="card">
+                <h3>Stage de fin d’études – SAIPH</h3>
+                <p>02/2024 – 05/2024 | Développement Web & Business Intelligence</p>
+                <ul>
+                    <li>Création d’une plateforme e-learning interne (Angular, Spring Boot, MySQL)</li>
+                    <li>Mise en place de tableaux de bord KPI pour le suivi de performance</li>
+                    <li>Automatisation du reporting, gain d’efficacité de 20%</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Stage d’été – SAIPH</h3>
+                <p>07/2023 – 09/2023 | Développement Web</p>
+                <ul>
+                    <li>Développement d’une application interne de gestion des tickets</li>
+                    <li>Amélioration de l’expérience utilisateur, réduction du temps de réponse de 15%</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<section>
-    <h2>Stage souhaité – Healio</h2>
-    <p>Développement et exécution d'une stratégie marketing digital complète pour promouvoir les solutions Healio et acquérir de nouveaux clients B2B/B2C.</p>
-    <ul>
-        <li>Gestion et optimisation de la présence sur réseaux sociaux (LinkedIn, Twitter, Instagram)</li>
-        <li>Création de contenu engageant (articles, vidéos, infographies)</li>
-        <li>Analyse des performances et mise en place de tracking avancé</li>
-        <li>Développement de campagnes d’acquisition multi-canaux</li>
-        <li>Implémentation d’une stratégie SEO/SEA data-driven</li>
-    </ul>
-</section>
+    <!-- Projets -->
+    <section id="projects">
+        <h2>Projets académiques</h2>
+        <div class="section-content">
+            <div class="card">
+                <h3>Veille stratégique – Magasin Aziza</h3>
+                <p>Analyse SEO, benchmarking, recommandations pour améliorer la visibilité digitale</p>
+            </div>
+            <div class="card">
+                <h3>Stratégie Web Marketing International – Alwosta</h3>
+                <p>Stratégie e-commerce internationale, SEO multicanal, CRM</p>
+            </div>
+            <div class="card">
+                <h3>Analyse stratégique – Supply Chain Management (Délice Holding)</h3>
+                <p>Digitalisation des processus logistiques et optimisation opérationnelle</p>
+            </div>
+            <div class="card">
+                <h3>Création d’une boutique en ligne</h3>
+                <p>Développement complet WordPress & WooCommerce, optimisation SEO et tunnel d’achat</p>
+            </div>
+            <div class="card">
+                <h3>Projet de transformation digitale – ESEN 2040</h3>
+                <p>Audit, analyse stratégique (McKinsey), conception de solutions et KPI</p>
+            </div>
+        </div>
+    </section>
 
-<section>
-    <h2>Contact</h2>
-    <ul>
-        <li>Email : <a href="mailto:naouras.hammami@gmail.com">naouras.hammami@gmail.com</a></li>
-        <li>Téléphone : +216 27 602 859</li>
-        <li>LinkedIn : <a href="https://linkedin.com/in/naouras-hammami" target="_blank">linkedin.com/in/naouras-hammami</a></li>
-        <li>Adresse : Mghira Anzel, Sidi Hassine, Tunisie</li>
-    </ul>
-</section>
+    <!-- Skills -->
+    <section id="skills">
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+            <div class="skill">Python / R / Java / PHP / JS</div>
+            <div class="skill">SQL / NoSQL / MySQL / Oracle / MongoDB</div>
+            <div class="skill">Power BI / Tableau / Looker Studio / Excel avancé</div>
+            <div class="skill">WordPress / WooCommerce / Odoo / HubSpot</div>
+            <div class="skill">Marketing digital & SEO</div>
+            <div class="skill">Scrum / Kanban / Gestion de projet</div>
+            <div class="skill">UX Design / Design Thinking / Transformation digitale</div>
+            <div class="skill">Communication & Community Management</div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email : <a href="mailto:naouras.hammami@gmail.com">naouras.hammami@gmail.com</a></p>
+        <p>Téléphone : +216 27 602 859</p>
+        <p>LinkedIn : <a href="https://linkedin.com/in/naouras-hammami" target="_blank">linkedin.com/in/naouras-hammami</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Nawres Hammami | Portfolio E-Business
+    </footer>
 
 </body>
 </html>
